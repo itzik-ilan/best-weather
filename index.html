@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>myApp</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <!-- angular -->
+    <script src="node_modules\angular\angular.min.js"></script>
+    <script src="node_modules\@uirouter\angularjs\release\angular-ui-router.min.js"></script>
+
+    <!-- 3rdParty -->
+    <script src="node_modules\underscore\underscore-min.js"></script>
+    <script src="node_modules\moment\min\moment.min.js"></script>
+    <script src="node_modules\angular-moment.min.js"></script>
+
+    <!-- app js-->
+    <script src="app.module.js"></script>
+    <script src="app.config.js"></script>
+    <script src="app.run.js"></script>
+    <script src="app\services\openWeatherService.service.js"></script>
+    <script src="app\list\list.controller.js"></script>
+
+    <!-- site css-->
+    <link rel="stylesheet" type="text/css" href="css\site.css">
+
+</head>
+
+<body>
+    <div ui-view class="container"></div>
+</body>
+</html>

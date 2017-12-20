@@ -1,0 +1,48 @@
+<div ng-show="listCtrl.list" ng-init="listCtrl.getView()">
+    <h2>The best weather on earth for
+    <select  ng-model="listCtrl.selectedTarget" ng-change="listCtrl.getView()">
+      <option value="21" >21 &#176;C</option>
+      <option value="22">22 &#176;C</option>
+    </select>
+    </h2>
+    <!-- winner -->
+    <div class="weather panel panel-primary">
+        <div class="panel-heading">{{listCtrl.winner.name}}</div>
+        <div class="panel-body">
+            <div>
+                <p class="lead">
+                    {{listCtrl.winner.main.temp | number:1}}&#176;C Humidity: {{listCtrl.winner.main.humidity}}%
+                </p>
+                <p>
+                    {{listCtrl.winner.weather[0].description}}&nbsp;&#126;&nbsp;
+                    High: {{listCtrl.winner.main.temp_max}}&#176;C&nbsp;&#126;&nbsp;
+                    Low: {{listCtrl.winner.main.temp_min}}&#176;C
+                </p>
+            </div>
+        </div>
+        <div class="panel-footer">
+            <small>
+                Lat: {{listCtrl.winner.coord.Lat}}
+                Lon: {{listCtrl.winner.coord.Lon}}
+                time: {{ listCtrl.winner.dt | amFromUnix | amDateFormat:'MM.DD.YYYY HH:mm:ss'}}
+            </small>
+        </div>
+    </div>
+
+    <br/>
+    <h2>Almost the best weather on earth ..</h2>
+    <div class="list-group">
+        <div class="list-group-item" ng-repeat="item in listCtrl.list">
+            <p class="lead">
+                <span class="text-primary">{{item.name}}:&nbsp;</span> {{item.main.temp | number:1}}&#176;C Humidity: {{item.main.humidity}}%
+            </p>
+            <p>
+                <span>time: {{ item.dt | amFromUnix | amDateFormat:'MM.DD.YYYY HH:mm:ss'}} </span>
+            </p>
+        </div>
+    </div>
+</div>
+
+<div ng-hide="listCtrl.list">
+    <h2>Loading ...</h2>
+</div>
